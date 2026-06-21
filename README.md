@@ -4,6 +4,43 @@ Automated GitHub PR review bot using Django, GitHub Webhooks, and Google Gemini 
 
 When a developer opens a Pull Request on GitHub, this bot automatically detects it, fetches the code changes, sends them to an AI model for review, and posts the AI-generated feedback directly as a comment on the PR - all without any manual intervention.
 
+## Live Demo
+
+The bot is deployed and live at:
+
+```
+https://pr-review-bot-k1lg.onrender.com
+```
+
+## How to Use This Bot on Your Own Repository
+
+You don't need to clone or run this project to use it. Just follow these steps on any repository you own:
+
+### Step 1: Connect your GitHub account
+
+Visit this link and authorize the app:
+
+```
+https://pr-review-bot-k1lg.onrender.com/api/github/login/
+```
+
+This grants the bot permission to read your repository's pull requests and post review comments. Your password is never shared - this uses GitHub OAuth.
+
+### Step 2: Add a webhook on your repository
+
+1. Go to your repository's **Settings > Webhooks > Add webhook**
+2. Set **Payload URL** to:
+   ```
+   https://pr-review-bot-k1lg.onrender.com/api/github/webhook/
+   ```
+3. Set **Content type** to `application/json`
+4. Under "Which events would you like to trigger this webhook?", select **Let me select individual events** and check only **Pull requests**
+5. Click **Add webhook**
+
+### Step 3: Open a Pull Request
+
+That's it. The next time a Pull Request is opened on your repository, the bot will automatically review the code changes and post AI-generated feedback as a comment within a few seconds.
+
 ## How It Works
 
 1. Developer opens a Pull Request on GitHub
