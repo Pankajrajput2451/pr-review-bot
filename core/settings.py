@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bg+ev2je6t-+3yvm380#n%#&4&7rdu*73l&yvxn8c)k8(2di4u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.ngrok-free.dev']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.ngrok-free.dev', '.onrender.com']
 
 
 # Application definition
